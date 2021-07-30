@@ -12,7 +12,24 @@
           >
           <button class="btn btn-primary input-groupt-btn">Adicionar</button>
         </div>
-          {{ todos }}
+        <div class="todo-list">
+          <div class="tile flex-centered" v-for="t in todos" :key="t.key">
+            <div class="tile-icon">
+              <i class="icon icon-time centered"></i>
+            </div>
+            <div class="tile-content">
+              <div class="tile-subtitle">
+                {{ t.description }}
+              </div>
+            </div>
+            <div class="tile-action">
+              <button class="btn btn-link">Concluído</button>
+              <button class="btn btn-link">
+                <span class="text-error">Remover</span>
+              </button>
+            </div>
+          </div>
+        </div>
       </form>
     </div>
   </div>
@@ -35,6 +52,7 @@ export default {
       console.log(this.todo)
       todo.id = Date.now()
       this.todos.push(todo)
+      this.todo = { checked: false }
     }
   }
 }
@@ -44,5 +62,8 @@ export default {
   .img-logo {
     width: 200px;
     margin: 0 auto;
+  }
+  .todo-list {
+    padding-top: 2rem;
   }
 </style>

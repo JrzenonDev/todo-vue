@@ -13,22 +13,7 @@
           <button class="btn btn-primary input-groupt-btn">Adicionar</button>
         </div>
         <div class="todo-list">
-          <div class="tile flex-centered" v-for="t in todos" :key="t.key">
-            <div class="tile-icon">
-              <i class="icon icon-time centered"></i>
-            </div>
-            <div class="tile-content">
-              <div class="tile-subtitle">
-                {{ t.description }}
-              </div>
-            </div>
-            <div class="tile-action">
-              <button class="btn btn-link">Concluído</button>
-              <button class="btn btn-link">
-                <span class="text-error">Remover</span>
-              </button>
-            </div>
-          </div>
+          <Todo class="tile flex-centered" v-for="t in todos" :key="t.key" :todo="t" />
         </div>
       </form>
     </div>
@@ -36,9 +21,13 @@
 </template>
 
 <script>
+import Todo from '@/components/Todo.vue'
 
 export default {
   name: 'App',
+  components: {
+    Todo
+  },
   data () {
     return {
       todos: [],

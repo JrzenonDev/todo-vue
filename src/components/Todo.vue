@@ -7,9 +7,13 @@
       <div class="tile-subtitle">
         {{ todo.description }}
       </div>
+      <div>{{ todo.checked }}</div>
     </div>
     <div class="tile-action">
-      <button class="btn btn-link">Concluído</button>
+      <button @click="$emit('toggle', todo)" class="btn btn-link">
+        <span v-if="todo.checked">Desmarcar</span>
+        <span v-else>Concluído</span>
+      </button>
       <button class="btn btn-link">
         <span class="text-error">Remover</span>
       </button>

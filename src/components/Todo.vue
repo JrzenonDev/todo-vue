@@ -1,5 +1,5 @@
 <template>
-  <div class="title flex-centered">
+  <div class="title flex-centered" :class="{checked : todo.cheked}">
     <div class="title-icon">
       <i class="icon icon-time"></i>
     </div>
@@ -33,3 +33,10 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+  .checked {
+    text-decoration: line-through;
+    color: var(--lightgray);
+  }
+</style>

@@ -1,25 +1,16 @@
 <template>
-  <div id="app">
+  <div class id="app">
     <div class="container grid-xs py-2">
-      <img class="img-logo img-responsive" alt="Vue logo" src="./assets/logo.png">
+      <img class="img-responsive img-logo" src="@/assets/logo.png" alt="Logomarca da SwitchCase">
       <form @submit.prevent="addTodo(todo)">
         <div class="input-group">
-          <input
-            type="text"
-            class="form-input"
-            placeholder="Novo Todo"
-            v-model="todo.description"
-          >
-          <button
-            class="btn btn-primary input-groupt-btn"
-          >
-            Adicionar
-          </button>
-        </div>
-        <div class="todo-list">
-          <Todo class="tile flex-centered" v-for="t in todos" :key="t.id" @toggle="toggleTodo" :todo="t" />
+          <input type="text" v-model="todo.description" class="form-input" placeholder="Novo todo">
+          <button class="btn btn-primary input-group-btn">Adicionar</button>
         </div>
       </form>
+      <div class="todo-list">
+        <todo v-for="t in todos" :key="t.id" @toggle="toggleTodo" @remove="removeTodo" :todo="t"/>
+      </div>
     </div>
   </div>
 </template>

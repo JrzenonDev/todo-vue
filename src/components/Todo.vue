@@ -1,7 +1,7 @@
 <template>
-  <div class="title flex-centered" :class="{checked : todo.cheked}">
+  <div class="title flex-centered" :class="{checked : todo.checked}">
     <div class="title-icon">
-      <i class="icon icon-time"></i>
+      <i class="icon" :class="todo.checked ? 'icon-check' : 'icon-time' "></i>
     </div>
     <div class="tile-content">
       <div class="tile-subtitle">
@@ -14,7 +14,7 @@
         <span v-if="todo.checked">Desmarcar</span>
         <span v-else>Concluído</span>
       </button>
-      <button class="btn btn-link">
+      <button @click="$emit('remove', todo)" class="btn btn-link">
         <span class="text-error">Remover</span>
       </button>
     </div>
@@ -37,6 +37,6 @@ export default {
 <style scoped>
   .checked {
     text-decoration: line-through;
-    color: var(--lightgray);
+    color: lightgray;
   }
 </style>

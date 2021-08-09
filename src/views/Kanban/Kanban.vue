@@ -1,5 +1,9 @@
 <template>
-  <h1>kanban</h1>
+  <main>
+    <h1>
+      Board
+    </h1>
+  </main>
 </template>
 
 <script>

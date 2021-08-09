@@ -1,13 +1,10 @@
 <template>
-  <div class="title flex-centered" :class="{checked : todo.checked}">
-    <div class="title-icon">
-      <i class="icon" :class="todo.checked ? 'icon-check' : 'icon-time' "></i>
+  <div class="tile" :class="{checked: todo.checked}">
+    <div class="tile-icon">
+      <i class="icon" :class="todo.checked ? 'icon-check' : 'icon-time'"></i>
     </div>
     <div class="tile-content">
-      <div class="tile-subtitle">
-        {{ todo.description }}
-      </div>
-      <div>{{ todo.checked }}</div>
+      <p class="tile-subtitle">{{ todo.description }}</p>
     </div>
     <div class="tile-action">
       <button @click="$emit('toggle', todo)" class="btn btn-link">

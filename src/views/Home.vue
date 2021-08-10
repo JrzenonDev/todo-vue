@@ -22,17 +22,19 @@ export default {
   },
   data () {
     return {
-      todos: [],
       todo: {
         checked: false
       }
     }
   },
+  computed: {
+    todos () {
+      return this.$store.state.todos
+    }
+  },
   methods: {
     addTodo (todo) {
-      console.log(this.todo)
-      todo.id = Date.now()
-      this.todos.push(todo)
+      this.$store.dispatch('addTodo', todo)
       this.todo = { checked: false }
     },
     toggleTodo (todo) {

@@ -3,7 +3,7 @@ import Vuex from 'vuex'
 
 Vue.use(Vuex)
 
-const state = { list: [] }
+const state = { todos: [] }
 
 const actions = {
   addTodo ({ commit }, todo) {
@@ -18,7 +18,7 @@ const actions = {
 
 const mutations = {
   addTodo (state, payload) {
-    state.list.push(payload)
+    state.todos.push(payload)
   }
 }
 

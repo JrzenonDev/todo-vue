@@ -40,10 +40,7 @@ const mutations = {
     }
   },
   removeTodo (state, payload) {
-    const index = state.todos.findIndex(item => item.id === payload.id)
-    if (index > -1) {
-      Vue.delete(state.todos, index)
-    }
+    state.todos = state.todos.filter(item => item.id !== payload.id)
   }
 }
 

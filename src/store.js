@@ -16,6 +16,9 @@ const actions = {
         resolve(todo)
       }, 1000)
     })
+  },
+  toggleTodo ({ commit }, todo) {
+    commit('toggleTodo', todo)
   }
 }
 
@@ -25,6 +28,13 @@ const mutations = {
   },
   setLoading (state, payload) {
     state.loading = payload
+  },
+  toggleTodo (state, payload) {
+    const index = state.todos.findIndex(item => item.id === payload.id)
+    if (index > -1) {
+      const checked = !state.todos[index].checked
+      Vue.set(state.todos, index, { ...state.todos[index], checked })
+    }
   }
 }
 

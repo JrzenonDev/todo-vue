@@ -11,6 +11,7 @@ const actions = {
       setTimeout(() => {
         todo.id = Date.now()
         commit('addTodo', todo)
+        resolve(todo)
       }, 1000)
     })
   }

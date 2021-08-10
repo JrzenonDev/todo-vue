@@ -19,6 +19,9 @@ const actions = {
   },
   toggleTodo ({ commit }, todo) {
     commit('toggleTodo', todo)
+  },
+  removeTodo ({ commit }, todo) {
+    commit('removeTodo', todo)
   }
 }
 
@@ -34,6 +37,12 @@ const mutations = {
     if (index > -1) {
       const checked = !state.todos[index].checked
       Vue.set(state.todos, index, { ...state.todos[index], checked })
+    }
+  },
+  removeTodo (state, payload) {
+    const index = state.todos.findIndex(item => item.id === payload.id)
+    if (index > -1) {
+      Vue.delete(state.todos, index)
     }
   }
 }

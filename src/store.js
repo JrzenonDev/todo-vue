@@ -25,6 +25,15 @@ const actions = {
   }
 }
 
+const getters = {
+  uncheckeds (state) {
+    return state.todos.filter(todo => todo.checked === false)
+  },
+  checkeds (state) {
+    return state.todos.filter(todo => todo.checked === true)
+  }
+}
+
 const mutations = {
   addTodo (state, payload) {
     state.todos.push(payload)
@@ -47,6 +56,7 @@ const mutations = {
 const store = new Vuex.Store({
   state,
   actions,
+  getters,
   mutations
 })
 

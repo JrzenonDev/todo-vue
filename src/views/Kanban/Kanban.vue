@@ -7,7 +7,7 @@
             <div class="panel-title">Todo</div>
           </div>
           <div class="panel-body">
-            {{ todos }}
+            {{ uncheckeds }}
           </div>
           <div class="panel-footer">
             <!-- buttons or inputs -->
@@ -20,7 +20,7 @@
             <div class="panel-title">Done</div>
           </div>
           <div class="panel-body">
-            <!-- contents -->
+            {{ checkeds }}
           </div>
           <div class="panel-footer">
             <!-- buttons or inputs -->
@@ -32,14 +32,13 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 // import Todo from '@/components/Todo'
 
 export default {
   name: 'Kanban',
   computed: {
-    todos () {
-      return this.$store.state.todos.filter(todo => todo.checked === false)
-    }
+    ...mapGetters(['uncheckeds', 'checkeds'])
   }
 }
 </script>

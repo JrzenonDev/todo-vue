@@ -14,6 +14,7 @@
 
 <script>
 import Todo from '@/components/Todo.vue'
+import { mapActions } from 'vuex'
 
 export default {
   name: 'App',
@@ -36,15 +37,10 @@ export default {
     }
   },
   methods: {
+    ...mapActions(['addTodo', 'toggleTodo', 'removeTodo']),
     async addTodo (todo) {
       await this.$store.dispatch('addTodo', todo)
       this.todo = { checked: false }
-    },
-    toggleTodo (todo) {
-      this.$store.dispatch('toggleTodo', todo)
-    },
-    removeTodo (todo) {
-      this.$store.dispatch('removeTodo', todo)
     }
   }
 }

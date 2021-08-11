@@ -14,7 +14,7 @@ const actions = {
         commit('addTodo', todo)
         commit('setLoading', false)
         resolve(todo)
-      }, 1000)
+      }, 500)
     })
   },
   toggleTodo ({ commit }, todo) {

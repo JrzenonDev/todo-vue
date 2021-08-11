@@ -7,7 +7,7 @@
             <div class="panel-title">Todo</div>
           </div>
           <div class="panel-body">
-            <!-- contents -->
+            {{ todos }}
           </div>
           <div class="panel-footer">
             <!-- buttons or inputs -->
@@ -32,8 +32,15 @@
 </template>
 
 <script>
+// import Todo from '@/components/Todo'
+
 export default {
-  name: 'Kanban'
+  name: 'Kanban',
+  computed: {
+    todos () {
+      return this.$store.state.todos.filter(todo => todo.checked === false)
+    }
+  }
 }
 </script>
 

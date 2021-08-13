@@ -7,7 +7,11 @@
             <div class="panel-title">Todo</div>
           </div>
           <div class="panel-body">
-            {{ uncheckeds }}
+            <Todo
+              v-for="(todo, index) in uncheckeds"
+              :key="index"
+              :todo="todo"
+            />
           </div>
           <div class="panel-footer">
             <!-- buttons or inputs -->
@@ -33,9 +37,10 @@
 
 <script>
 import { mapGetters } from 'vuex'
-// import Todo from '@/components/Todo'
+import Todo from '@/components/Todo.vue'
 
 export default {
+  components: { Todo },
   name: 'Kanban',
   computed: {
     ...mapGetters(['uncheckeds', 'checkeds'])

@@ -5,15 +5,15 @@
     </div>
     <div class="tile-content">
       <p class="tile-subtitle">{{ todo.description }}</p>
-    </div>
-    <div class="tile-action">
-      <button @click="$emit('toggle', todo)" class="btn btn-link">
-        <span v-if="todo.checked">Desmarcar</span>
-        <span v-else>Concluído</span>
-      </button>
-      <button @click="$emit('remove', todo)" class="btn btn-link">
-        <span class="text-error">Remover</span>
-      </button>
+      <p class="tile-actions">
+        <button @click="$emit('toggle', todo)" class="btn btn-link">
+          <span v-if="todo.checked">Desmarcar</span>
+          <span v-else>Concluído</span>
+        </button>
+        <button @click="$emit('remove', todo)" class="btn btn-link">
+          <span class="text-error">Remover</span>
+        </button>
+      </p>
     </div>
   </div>
 </template>
@@ -35,5 +35,9 @@ export default {
   .checked {
     text-decoration: line-through;
     color: lightgray;
+  }
+
+  .tile {
+    box-shadow: 0 0.25rem 1rem rgba(48, 55, 66, 0.15);
   }
 </style>

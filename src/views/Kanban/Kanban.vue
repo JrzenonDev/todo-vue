@@ -11,6 +11,8 @@
               v-for="(todo, index) in uncheckeds"
               :key="index"
               :todo="todo"
+              @remove="removeTodo"
+              @toggle="toggleTodo"
             />
           </div>
           <div class="panel-footer">
@@ -24,7 +26,13 @@
             <div class="panel-title">Done</div>
           </div>
           <div class="panel-body">
-            {{ checkeds }}
+            <Todo
+              v-for="(todo, index) in checkeds"
+              :key="index"
+              :todo="todo"
+              @remove="removeTodo"
+              @toggle="toggleTodo"
+            />
           </div>
           <div class="panel-footer">
             <!-- buttons or inputs -->
@@ -36,7 +44,7 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapGetters, mapActions } from 'vuex'
 import Todo from '@/components/Todo.vue'
 
 export default {
@@ -44,6 +52,9 @@ export default {
   name: 'Kanban',
   computed: {
     ...mapGetters(['uncheckeds', 'checkeds'])
+  },
+  methods: {
+    ...mapActions(['toggleTodo', 'removeTodo'])
   }
 }
 </script>

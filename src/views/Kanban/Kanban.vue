@@ -42,6 +42,13 @@
           </div>
           <div class="panel-footer">
             <button
+              class="btn btn-link float-right text-error"
+              @click="removeAllCheckeds"
+              v-if="checkeds.length > 0"
+            >
+              Remover tudo
+            </button>
+            <button
               class="btn btn-link float-right"
               @click="uncheckedAll"
               v-if="checkeds.length > 0"
@@ -66,7 +73,7 @@ export default {
     ...mapGetters(['uncheckeds', 'checkeds'])
   },
   methods: {
-    ...mapActions(['toggleTodo', 'removeTodo', 'checkAll', 'uncheckedAll'])
+    ...mapActions(['toggleTodo', 'removeTodo', 'checkAll', 'uncheckedAll', 'removeAllCheckeds'])
   }
 }
 </script>
